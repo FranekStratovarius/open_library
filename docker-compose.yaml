@@ -3,16 +3,15 @@ version: "2.1"
 
 services:
   mariadb:
-    image: mariadb
-    container_name: mariadb
+    image: postgres
+    container_name: postgres
     environment:
       - TZ=Europe/Berlin
-      - MYSQL_ROOT_PASSWORD=XRGFrWu2GKfc7rmg2qc8
-      - MYSQL_DATABASE=open_library_dev
-      - MYSQL_USER=admin
-      - MYSQL_PASSWORD=q58vaNExAGVTvw4EDzhU
+      - POSTGRES_DB=open_library_dev
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
     volumes:
-      - ./db-data:/var/lib/mysql
+      - ./db-data:/var/lib/postgresql/data
     ports:
-      - 3306:3306
+      - 5432:5432
     restart: unless-stopped

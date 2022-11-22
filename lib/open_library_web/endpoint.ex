@@ -7,7 +7,7 @@ defmodule OpenLibraryWeb.Endpoint do
   @session_options [
     store: :cookie,
     key: "_open_library_key",
-    signing_salt: "mKU8eiI8"
+    signing_salt: "ml3Rktv0"
   ]
 
   socket "/live", Phoenix.LiveView.Socket, websocket: [connect_info: [session: @session_options]]

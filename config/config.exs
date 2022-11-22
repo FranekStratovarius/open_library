@@ -15,7 +15,7 @@ config :open_library, OpenLibraryWeb.Endpoint,
   url: [host: "localhost"],
   render_errors: [view: OpenLibraryWeb.ErrorView, accepts: ~w(html json), layout: false],
   pubsub_server: OpenLibrary.PubSub,
-  live_view: [signing_salt: "xdrlCCYD"]
+  live_view: [signing_salt: "RkSxKADA"]
 
 # Configures the mailer
 #

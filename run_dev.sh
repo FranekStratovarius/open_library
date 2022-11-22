@@ -1,0 +1,1 @@
+PORT=80 mix phx.server

@@ -2,8 +2,8 @@ import Config
 
 # Configure your database
 config :open_library, OpenLibrary.Repo,
-  username: "admin",
-  password: "q58vaNExAGVTvw4EDzhU",
+  username: "postgres",
+  password: "postgres",
   hostname: "localhost",
   database: "open_library_dev",
   stacktrace: true,
@@ -23,7 +23,7 @@ config :open_library, OpenLibraryWeb.Endpoint,
   check_origin: false,
   code_reloader: true,
   debug_errors: true,
-  secret_key_base: "m9wHUo3cTAnw4mAqZ/sJBQy7vlyIeJPiJ0KM24SpebyZYKcUET0N9YfaRhUZ3ZKS",
+  secret_key_base: "1qZLmbi/t3ispYgI++sunzAaptOw+UgReYUfGFo8nSPfA/+ttrPD/Ou9qDjYCqwF",
   watchers: [
     # Start the esbuild watcher by calling Esbuild.install_and_run(:default, args)
     esbuild: {Esbuild, :install_and_run, [:default, ~w(--sourcemap=inline --watch)]}
