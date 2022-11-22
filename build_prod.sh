@@ -1,0 +1,9 @@
+# clean created assets
+#mix phx.digest.clean --all
+
+# get dependencies
+mix deps.get --only prod
+# compile
+MIX_ENV=prod mix compile
+# compile assets
+MIX_ENV=prod mix assets.deploy
