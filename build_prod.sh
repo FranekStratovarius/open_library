@@ -2,6 +2,7 @@
 #mix phx.digest.clean --all
 
 # get dependencies
+mix local.rebar --force
 mix deps.get --only prod
 # compile
 MIX_ENV=prod mix compile
