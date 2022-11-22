@@ -1,0 +1,18 @@
+---
+version: "2.1"
+
+services:
+  mariadb:
+    image: mariadb
+    container_name: mariadb
+    environment:
+      - TZ=Europe/Berlin
+      - MYSQL_ROOT_PASSWORD=XRGFrWu2GKfc7rmg2qc8
+      - MYSQL_DATABASE=open_library_dev
+      - MYSQL_USER=admin
+      - MYSQL_PASSWORD=q58vaNExAGVTvw4EDzhU
+    volumes:
+      - ./db-data:/var/lib/mysql
+    ports:
+      - 3306:3306
+    restart: unless-stopped
