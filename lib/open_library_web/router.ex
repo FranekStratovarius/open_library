@@ -5,7 +5,7 @@ defmodule OpenLibraryWeb.Router do
     plug :accepts, ["html"]
     plug :fetch_session
     plug :fetch_live_flash
-    plug :put_root_layout, {OpenLibraryWeb.LayoutView, :root}
+    # plug :put_root_layout, {OpenLibraryWeb.LayoutView, :root}
     plug :protect_from_forgery
     plug :put_secure_browser_headers
   end
@@ -14,10 +14,15 @@ defmodule OpenLibraryWeb.Router do
     plug :accepts, ["json"]
   end
 
+  pipeline :library_layout do
+    plug :put_layout, {OpenLibraryWeb.LayoutView, :library}
+  end
+
   scope "/", OpenLibraryWeb do
-    pipe_through :browser
+    pipe_through [:browser, :library_layout]
 
     get "/", PageController, :index
+    resources "/posts", PostController
   end
 
   # Other scopes may use custom stacks.
