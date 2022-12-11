@@ -4,4 +4,8 @@ defmodule OpenLibraryWeb.PageController do
   def index(conn, _params) do
     render(conn, "index.html")
   end
+
+  def booklist(conn, _params) do
+    render(conn, "booklist.html")
+  end
 end

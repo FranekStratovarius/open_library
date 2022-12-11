@@ -22,6 +22,7 @@ defmodule OpenLibraryWeb.Router do
     pipe_through [:browser, :library_layout]
 
     get "/", PageController, :index
+    get "/buecherliste", PageController, :booklist
     resources "/posts", PostController
   end
 
