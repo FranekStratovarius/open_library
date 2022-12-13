@@ -1,0 +1,33 @@
+<div class="row justify-content-between">
+	<div class="col-6">
+		<h1 class="bd-title mb-0">
+			<%= @book.title %>
+			<%= if @book.available do %>
+				<i class="bi-check"></i>
+			<% else %>
+				<i class="bi-x"></i>
+			<% end %>
+		</h1>
+	</div>
+	<div class="col-6 text-end">
+		<%= link "Zurück", to: Routes.book_path(@conn, :index), method: :get, class: "btn btn-primary" %>
+	</div>
+</div>
+<hr>
+<%= @book.description %>
+<hr>
+<h3>Kontakt</h3>
+<p>
+<%= @book.contact_person %>
+</p>
+<p>
+<%= @book.contact %>
+</p>
+<hr>
+<%= link "Bearbeiten", to: Routes.book_path(@conn, :edit, @book), method: :get, class: "btn btn-primary" %>
+<%= link "Buch entfernen", to: Routes.book_path(@conn, :delete, @book), method: :delete, class: "btn btn-danger" %>
+<%= if @book.available do %>
+	<%= link "Buch als ausgeliehen markieren", to: Routes.take_path(@conn, :take, @book), method: :post, class: "btn btn-warning" %>
+<% else %>
+	<%= link "Buch als verfügbar markieren", to: Routes.take_path(@conn, :take, @book), method: :post, class: "btn btn-warning" %>
+<% end %>

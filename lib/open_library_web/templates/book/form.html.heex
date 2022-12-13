@@ -1,0 +1,35 @@
+<.form let={f} for={@changeset} action={@action}>
+	<%= if @changeset.action do %>
+		<div class="alert alert-danger">
+			<p>Oops, Irgendetwas ist schiefgelaufen! Bitte sieh in den folgenden Fehlermeldungen nach.</p>
+		</div>
+	<% end %>
+
+	<p>
+		<%= label f, "Titel" %>
+		<%= text_input f, :title, class: "form-control" %>
+		<%= error_tag f, :title %>
+	</p>
+
+	<p>
+		<%= label f, "Kontaktperson" %>
+		<%= text_input f, :contact_person, class: "form-control" %>
+		<%= error_tag f, :contact_person %>
+	</p>
+
+	<p>
+		<%= label f, "Kontaktinformationen" %>
+		<%= text_input f, :contact, class: "form-control" %>
+		<%= error_tag f, :contact %>
+	</p>
+
+	<p>
+		<%= label f, "Beschreibung" %>
+		<%= textarea f, :description, class: "form-control" %>
+		<%= error_tag f, :description %>
+	</p>
+
+	<div>
+		<%= submit "Speichern", class: "btn btn-success" %>
+	</div>
+</.form>

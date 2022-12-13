@@ -1,0 +1,34 @@
+<div class="d-flex align-items-center bg-primary p-3 rounded shadow-sm">
+	<div class="lh-1">
+		<h1 class="mb-0 lh-1">Bücherliste</h1>
+	</div>
+</div>
+
+
+<table class="table table-striped table-hover align-middle">
+	<thead>
+		<tr>
+			<th>Buchtitel</th>
+			<th>Kontaktperson</th>
+			<th></th>
+		</tr>
+	</thead>
+	<tbody>
+		<%= for book <- @books do %>
+			<tr>
+				<td>
+					<%= if book.available do %>
+						<i class="bi-check"></i>
+					<%= else %>
+						<i class="bi-x"></i>
+					<%= end %>
+					<%= book.title %>
+				</td>
+				<td><%= book.contact_person %></td>
+				<td>
+					<a href={Routes.book_path(@conn, :show, book)} class="btn btn-primary btn-sm">Infos</a>
+				</td>
+			</tr>
+		<% end %>
+	</tbody>
+</table>

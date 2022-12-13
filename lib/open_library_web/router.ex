@@ -22,8 +22,8 @@ defmodule OpenLibraryWeb.Router do
     pipe_through [:browser, :library_layout]
 
     get "/", PageController, :index
-    get "/buecherliste", PageController, :booklist
-    resources "/posts", PostController
+    resources "/books", BookController
+    post "/books/:id/take", BookController, :take, as: :take
   end
 
   # Other scopes may use custom stacks.
