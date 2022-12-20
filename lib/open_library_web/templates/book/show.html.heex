@@ -25,9 +25,30 @@
 </p>
 <hr>
 <%= link "Bearbeiten", to: Routes.book_path(@conn, :edit, @book), method: :get, class: "btn btn-primary" %>
-<%= link "Buch entfernen", to: Routes.book_path(@conn, :delete, @book), method: :delete, class: "btn btn-danger" %>
+<button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal">
+  Buch entfernen
+</button>
 <%= if @book.available do %>
 	<%= link "Buch als ausgeliehen markieren", to: Routes.take_path(@conn, :take, @book), method: :post, class: "btn btn-warning" %>
 <% else %>
 	<%= link "Buch als verfügbar markieren", to: Routes.take_path(@conn, :take, @book), method: :post, class: "btn btn-warning" %>
 <% end %>
+
+<!-- Modal -->
+<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="deleteModalLabel">Löschen?</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Möchtest du dieses Buch wirklich löschen?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Abbrechen</button>
+		<%= link "Buch entfernen", to: Routes.book_path(@conn, :delete, @book), method: :delete, class: "btn btn-danger" %>
+      </div>
+    </div>
+  </div>
+</div>
