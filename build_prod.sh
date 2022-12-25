@@ -8,3 +8,8 @@ mix deps.get --only prod
 MIX_ENV=prod mix compile
 # compile assets
 MIX_ENV=prod mix assets.deploy
+
+# create database
+mix ecto.create
+# migrate database
+mix ecto.migrate
