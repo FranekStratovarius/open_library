@@ -19,6 +19,8 @@ services:
       - SECRET_KEY_BASE=LCEMBgp+TUlWBtjPa5Gf4gOum+8X4UNQjmlT62Od7gsLmKr76aXY9AXm825CRFht
     ports:
       - 4000:4000
+    depends_on:
+      - "postgres"
     networks:
       # - swag_proxy
       - backend
