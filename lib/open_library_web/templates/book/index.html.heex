@@ -9,6 +9,7 @@
 		<thead>
 			<tr>
 				<th>Buchtitel</th>
+				<th>Author</th>
 				<th>Kontaktperson</th>
 				<th></th>
 			</tr>
@@ -19,11 +20,12 @@
 					<td>
 						<%= if book.available do %>
 							<i class="bi-check"></i>
-						<%= else %>
+						<% else %>
 							<i class="bi-x"></i>
-						<%= end %>
+						<% end %>
 						<%= book.title %>
 					</td>
+					<td><%= book.author %></td>
 					<td><%= book.contact_person %></td>
 					<td>
 						<a href={Routes.book_path(@conn, :show, book)} class="btn btn-primary btn-sm">Infos</a>

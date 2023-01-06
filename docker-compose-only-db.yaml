@@ -1,0 +1,20 @@
+---
+version: "2.1"
+
+volumes:
+  db-data:
+
+services:
+  postgres:
+    image: postgres
+    container_name: postgres
+    environment:
+      - TZ=Europe/Berlin
+      - POSTGRES_DB=open_library_dev
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    volumes:
+      - db-data:/var/lib/postgresql/data
+    ports:
+      - 5432:5432
+    restart: unless-stopped

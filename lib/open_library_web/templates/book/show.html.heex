@@ -8,6 +8,7 @@
 				<i class="bi-x"></i>
 			<% end %>
 		</h1>
+		<%= @book.author %>
 	</div>
 	<div class="col-6 text-end">
 		<%= link "Zurück", to: Routes.book_path(@conn, :index), method: :get, class: "btn btn-primary" %>

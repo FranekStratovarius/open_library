@@ -2,23 +2,15 @@ import Config
 
 # Configure your database
 config :open_library, OpenLibrary.Repo,
-  # username: "postgres",
-  # password: "postgres",
-  # hostname: "localhost",
-  # database: "open_library_dev",
-  # username: "open_library_db_user",
-  # password: "UpRB7FDcF09vnYG6dscS34eEZ5oIJIIu",
-  # hostname: "dpg-ceb2175a4996mecsln30-a.frankfurt-postgres.render.com",
-  # database: "open_library_db",
   username: "postgres",
-  password: "KrszuSXEcxnhKzFFTQPf",
-  hostname: "containers-us-west-94.railway.app",
-  database: "railway",
-  port: 6238,
+  password: "postgres",
+  hostname: "localhost",
+  database: "open_library_dev",
   stacktrace: true,
   show_sensitive_data_on_connection_error: true,
-  pool_size: 10,
-  ssl: true
+  pool_size: 10
+
+# ssl: true
 
 # For development, we disable any cache and enable
 # debugging and code reloading.

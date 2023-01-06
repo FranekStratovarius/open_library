@@ -77,6 +77,7 @@ defmodule OpenLibraryWeb.BookController do
            book,
            %{
              title: book.title,
+             author: book.author,
              contact_person: book.contact_person,
              contact: book.contact,
              description: book.description,

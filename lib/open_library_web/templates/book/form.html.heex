@@ -6,9 +6,19 @@
 	<% end %>
 
 	<p>
-		<%= label f, "Titel" %>
-		<%= text_input f, :title, class: "form-control" %>
-		<%= error_tag f, :title %>
+		<div class="row g-2">
+			<div class="col-6">
+				<%= label f, "Titel" %>
+				<%= text_input f, :title, class: "form-control" %>
+				<%= error_tag f, :title %>
+			</div>
+
+			<div class="col-6">
+				<%= label f, "Author" %>
+				<%= text_input f, :author, class: "form-control" %>
+				<%= error_tag f, :author %>
+			</div>
+		</div>
 	</p>
 
 	<p>

@@ -4,6 +4,8 @@ FROM alpine:3.16
 RUN apk add --no-cache \
 	elixir
 
+ENV MIX_ENV=prod
+
 RUN mix local.hex phx_new --force
 
 COPY .	/code

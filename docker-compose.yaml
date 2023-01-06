@@ -1,20 +1,37 @@
 ---
-version: "2.1"
+version: "3.8"
 
-volumes:
-  db-data:
+networks:
+  # swag_proxy:
+  #   external: true
+  backend:
 
 services:
-  postgres:
-    image: postgres
-    container_name: postgres
+  phoenix:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: phoenix
     environment:
       - TZ=Europe/Berlin
-      - POSTGRES_DB=open_library_dev
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=postgres
-    volumes:
-      - db-data:/var/lib/postgresql/data
+      - PORT=4000
+      - DATABASE_URL=postgresql://user:password@postgres:5432/database
+      - SECRET_KEY_BASE=LCEMBgp+TUlWBtjPa5Gf4gOum+8X4UNQjmlT62Od7gsLmKr76aXY9AXm825CRFht
     ports:
-      - 5432:5432
+      - 4000:4000
+    networks:
+      # - swag_proxy
+      - backend
+    restart: unless-stopped
+  postgres:
+    image: postgres:15.1-alpine3.17
+    container_name: postgres
+    environment:
+      - POSTGRES_USER=user
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=database
+    volumes:
+      - ./data:/var/lib/postgresql/data
+    networks:
+      - backend
     restart: unless-stopped

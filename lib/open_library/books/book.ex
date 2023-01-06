@@ -4,6 +4,7 @@ defmodule OpenLibrary.Books.Book do
 
   schema "books" do
     field :title, :string
+    field :author, :string
     field :contact_person, :string
     field :contact, :string
     field :description, :string
@@ -15,7 +16,7 @@ defmodule OpenLibrary.Books.Book do
   @doc false
   def changeset(book, attrs) do
     book
-    |> cast(attrs, [:title, :contact_person, :contact, :description, :available])
+    |> cast(attrs, [:title, :author, :contact_person, :contact, :description, :available])
     |> validate_required([:title, :contact_person, :contact])
   end
 end
