@@ -3,6 +3,9 @@ if [[ -z "${PORT}" ]]; then
 	PORT="80"
 fi
 
+# wait for database
+sleep 20s
+
 # create database
 mix ecto.create
 # migrate database
