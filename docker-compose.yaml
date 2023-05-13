@@ -30,6 +30,7 @@ services:
     image: postgres:15.1-alpine3.17
     container_name: postgres
     environment:
+      - PGUSER=user
       - POSTGRES_USER=user
       - POSTGRES_PASSWORD=password
       - POSTGRES_DB=database
