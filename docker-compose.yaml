@@ -2,28 +2,28 @@
 version: "3.8"
 
 networks:
-  # swag_proxy:
-  #   external: true
+  swag_proxy:
+    external: true
   backend:
 
 services:
-  phoenix:
+  campus-connect-library:
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: phoenix
+    container_name: campus-connect-library
     environment:
       - TZ=Europe/Berlin
       - PORT=4000
       - DATABASE_URL=postgresql://user:password@postgres:5432/database
       - SECRET_KEY_BASE=LCEMBgp+TUlWBtjPa5Gf4gOum+8X4UNQjmlT62Od7gsLmKr76aXY9AXm825CRFht
-    ports:
-      - 4000:4000
+    #ports:
+    #  - 4000:4000
     depends_on:
       postgres:
         condition: service_healthy
     networks:
-      # - swag_proxy
+      - swag_proxy
       - backend
     restart: unless-stopped
   postgres:
