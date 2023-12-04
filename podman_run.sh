@@ -1,7 +1,7 @@
 ## build image
-# podman build --file Dockerfile \
-# 	--tag campus-connect-library \
-# 	.
+podman build --file Dockerfile \
+	--tag campus-connect-library \
+	.
 
 ## create pod
 podman pod create --name open_library --label open_library --publish 4000:4000
@@ -13,7 +13,7 @@ podman run -dt --pod open_library \
 	--env POSTGRES_PASSWORD=password \
 	--env POSTGRES_DB=database \
 	--volume ./data:/var/lib/postgresql/data \
-	postgres:15.1-alpine3.17
+	docker.io/library/postgres:15.1-alpine3.17
 
 ## start and add container to pod
 podman run -dt --pod open_library \
